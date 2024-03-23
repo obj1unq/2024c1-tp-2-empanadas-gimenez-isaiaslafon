@@ -32,10 +32,12 @@ object galvan{
 	method totalDeuda(){
 		return if (self.tieneDeuda()) dinero * -1 else 0	
 		//return if (self.tieneDeuda()) dinero.abs() else 0	
+		//return 0.min(dinero).abs
 	}
 	
 	method totalDinero(){
 		return if (self.tieneDeuda()) 0 else dinero
+		//return 0.max(dinero)
 	}
 }
 
