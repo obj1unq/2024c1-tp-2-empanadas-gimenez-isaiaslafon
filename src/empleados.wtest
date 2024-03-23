@@ -27,6 +27,17 @@ test "Gimenez pagar a Galvan se reduce fondo en $15.000 (fondo $285.000)" {
 	assert.equals(285000, gimenez.fondo())
 }
 
+test "Baigorria total cobrado queda en $1500 luego de vender y cobrar 2 veces" {
+	baigorria.precioEmpanada(10)
+	baigorria.venderEmpanadas(100)
+	baigorria.cobrarSueldo()
+	
+	baigorria.venderEmpanadas(50)
+	baigorria.cobrarSueldo()
+	
+	assert.equals(1500, baigorria.totalCobrado())
+	assert.equals(0, baigorria.sueldo())
+}
 
 test "Ejemplo enunciado" {
 	//- registrar la venta de 500 empanadas por parte de Baigorria
